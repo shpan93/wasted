@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startStream } from '../../redux/application/actions';
+import '../../sass/components/stream.scss';
 
 class Stream extends React.PureComponent {
   constructor(props) {
@@ -61,8 +62,9 @@ class Stream extends React.PureComponent {
       <div className="stream-page">
         {
           this.state.isShown &&
-          <div ref={(c) => { this.component = c; }} className="stream-wrapper" >
+          <div className="stream-wrapper" >
             <video id="myVideo" autoPlay className="own-video" />
+            <div className="friends-video-container" ref={(c) => { this.component = c; }} />
           </div>
         }
         <button
