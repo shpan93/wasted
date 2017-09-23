@@ -5,6 +5,8 @@ import Root from './components/Root';
 import configureStore from './redux/configureStore';
 import getRoutes from './routes/routes';
 import './sass/common.scss';
+import './node_modules/onsenui/css/onsenui.css';
+import './node_modules/onsenui/css/onsen-css-components.css';
 
 const { store, history } = configureStore(browserHistory, window.App);
 match({

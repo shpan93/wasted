@@ -6,6 +6,8 @@ import basicAuth from 'express-basic-auth';
 import applicationHandler from './handlers/application';
 
 const server = express();
+// window = {}
+
 server.use(bodyParser.json({ limit: '5000mb', uploadDir: './uploads' }));
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(cookieParser());

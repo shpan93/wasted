@@ -9,7 +9,7 @@ build
 *.iml
 
 ## Directory-based project format:
-.idea/
+.idea
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
@@ -105,3 +105,5 @@ backstop_data/bitmaps_reference
 backstop_data/bitmaps_test
 backstop_data/ci_report
 backstop_data/html_report
+
+yarn.lock
