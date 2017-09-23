@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../../form/Input';
 import Register from '../Register/Register';
-import { login , logout} from '../../../redux/user/actions';
+import { login } from '../../../redux/user/actions';
 
 class LoginForm extends React.Component {
   static propTypes = {
@@ -29,17 +29,18 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form-wrapper">
         <form onSubmit={::this.submit}>
-          <Input value={this.state.username} placeholder="name" onChange={this.handleChange.bind(this, 'username')} />
-          <Input value={this.state.password} type="password" placeholder="name"
+          <Input value={this.state.username} placeholder="username" className="login-input"
+                 onChange={this.handleChange.bind(this, 'username')} />
+          <Input value={this.state.password} type="password" className="login-input" placeholder="name"
                  onChange={this.handleChange.bind(this, 'password')} />
-          <div onClick={::this.pushPage}>Go to reg</div>
-          <div onClick={::this.props.logout}>Go to reg</div>
-          <button type="submit">
-            Join
+          <button className="btn submit-button" type="submit">
+            <span>Log in</span>
           </button>
         </form>
+
+        <div onClick={::this.pushPage}>Sign up</div>
       </div>
     )
   }
@@ -47,5 +48,4 @@ class LoginForm extends React.Component {
 
 export default connect(null, {
   login,
-  logout,
 })(LoginForm);

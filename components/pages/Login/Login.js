@@ -24,10 +24,19 @@ class LoginPage extends React.PureComponent {
 
   render() {
     return (
-    <Ons.Page renderToolbar={::this.renderToolbar} key="login">
-      <LoginForm onSubmit={::this.handleSubmit} {...this.props}/>
-    </Ons.Page>
-    )
+      <Ons.Page renderToolbar={::this.renderToolbar} key="login">
+        <div className="page-wrapper">
+          <img src="../../../assets/wasted_ico.png" alt="Logo" className="logo"/>
+          <LoginForm onSubmit={::this.handleSubmit} {...this.props}/>
+          <div className="suggestion">
+            <p>
+              Don't have an account? <br/>
+              Please, <a className="link" href="#">Sign up</a>
+            </p>
+          </div>
+        </div>
+      </Ons.Page>
+    );
   }
 }
 

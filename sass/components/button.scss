@@ -1,16 +1,18 @@
 $blue: #00b3e3;
 $lightblue: #00b3e3;
+$sunrise: #da6f5b;
 
 .btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $lightblue;
+  background-color: $sunrise;
   cursor: pointer;
-  width: 336px;
-  height: 50px;
+  width: 35%;
+  height: 43px;
   box-sizing: border-box;
   transition: background 0.3s;
+  margin-top: 30px;
 
   &.error {
     background-color: #d6d6d6;
@@ -25,8 +27,8 @@ $lightblue: #00b3e3;
   }
 
   &--main {
-    width: 336px;
-    height: 45px;
+    width: 202px;
+    height: 74px;
   }
 
   &--fw {
@@ -34,12 +36,12 @@ $lightblue: #00b3e3;
   }
 
   &:hover {
-    background: darken($blue, 5%);
+    background: darken($sunrise, 15%);
   }
-
-  &.active {
-    background: darken($blue, 7.5%);
-  }
+  //
+  //&.active {
+  //  background: darken($blue, 7.5%);
+  //}
 
   &[disabled]{
     cursor: not-allowed;
