@@ -1,13 +1,8 @@
 import React from 'react';
 import * as Ons from 'react-onsenui';
-import LoginForm from './LoginForm';
 
 class LoginPage extends React.PureComponent {
   static propTypes = {};
-
-  handleSubmit(values) {
-    console.log(values);
-  }
 
   renderToolbar() {
     return (
@@ -24,9 +19,9 @@ class LoginPage extends React.PureComponent {
 
   render() {
     return (
-    <Ons.Page renderToolbar={::this.renderToolbar} key="login">
-      <LoginForm onSubmit={::this.handleSubmit} {...this.props}/>
-    </Ons.Page>
+      <Ons.Page renderToolbar={::this.renderToolbar} key="register">
+        <div>sdsdsdsdsd</div>
+      </Ons.Page>
     )
   }
 }

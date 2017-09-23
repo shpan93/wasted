@@ -7,7 +7,7 @@ const MyTab = React.createClass({
     return (
       <Ons.Page>
         <section style={{ margin: '16px' }}>
-          <Login/>
+          <Login />
           <p>
             {this.props.content}.
           </p>
@@ -18,52 +18,64 @@ const MyTab = React.createClass({
 });
 
 class MainPage extends React.Component {
-
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      index: 0,
+      isOpen: false,
     };
+    this.loadPage = this.loadPage.bind(this);
   }
 
-  renderToolbar() {
-    const titles = ['Home', 'Settings'];
-    return (
-      <Ons.Toolbar>
-        <div className='center'>{titles[this.state.index]}</div>
-      </Ons.Toolbar>
-    );
+  hide() {
+    this.setState({ isOpen: false });
   }
 
-  renderTabs() {
-    return [
-      {
-        content: <MyTab content="Welcome home" />,
-        tab: <Ons.Tab label='Home' icon='md-home' />
-      },
-      {
-        content: <MyTab content="Change the settings" />,
-        tab: <Ons.Tab label='Settings' icon='md-settings' />
-      }
-    ];
+  show() {
+    this.setState({ isOpen: true });
+  }
+
+  loadPage(page) {
+    this.hide();
+    this.navigator.resetPage({ component: page, props: { key: page } });
+  }
+
+  renderPage(route, navigator) {
+    route.props = route.props || {};
+    route.props.navigator = navigator;
+    route.props.showMenu = this.show.bind(this);
+
+    return React.createElement(route.component, route.props);
   }
 
   render() {
     return (
-      <Ons.Page renderToolbar={::this.renderToolbar}>
-        <Ons.Tabbar
-          swipeable={true}
-          position='auto'
-          index={this.state.index}
-          onPreChange={(event) => {
-            if (event.index != this.state.index) {
-              this.setState({ index: event.index });
-            }
-          }
-          }
-          renderTabs={::this.renderTabs}
-        />
-      </Ons.Page>
+      <Ons.Splitter>
+        <Ons.SplitterSide
+          side='right'
+          collapse={true}
+          isOpen={this.state.isOpen}
+          onClose={this.hide.bind(this)}
+          onOpen={this.show.bind(this)}
+        >
+          <Ons.Page>
+            <Ons.List>
+              <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
+              {/*<Ons.ListItem key='cards' onClick={this.loadPage.bind(this, Cards)} tappable>Cards</Ons.ListItem>*/}
+              {/*<Ons.ListItem key='settings' onClick={this.loadPage.bind(this, Settings)} tappable>Settings</Ons.ListItem>*/}
+            </Ons.List>
+          </Ons.Page>
+        </Ons.SplitterSide>
+        <Ons.SplitterContent>
+          <Ons.Navigator
+            animation="slide"
+            initialRoute={{ component: Login, props: { key: 'home' } }}
+            renderPage={this.renderPage.bind(this)}
+            ref={(navigator) => {
+              this.navigator = navigator;
+            }} />
+        </Ons.SplitterContent>
+      </Ons.Splitter>
+
     );
   }
 }
