@@ -1,25 +1,67 @@
 import React from 'react';
-import ons from 'onsenui';
-import { Page, Button } from 'react-onsenui';
+import * as Ons from 'react-onsenui';
 
-class MainPage extends React.PureComponent {
-  static propTypes = {};
-  static defaultProps = {};
+const MyTab = React.createClass({
+  render() {
+    return (
+      <Ons.Page>
+        <section style={{ margin: '16px' }}>
+          <p>
+            {this.props.content}.
+          </p>
+        </section>
+      </Ons.Page>
+    );
+  }
+});
 
-  handleClick() {
-    ons.notification.alert('Hello world!');
+class MainPage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+    };
+  }
+
+  renderToolbar() {
+    const titles = ['Home', 'Settings'];
+    return (
+      <Ons.Toolbar>
+        <div className='center'>{titles[this.state.index]}</div>
+      </Ons.Toolbar>
+    );
+  }
+
+  renderTabs() {
+    return [
+      {
+        content: <MyTab content="Welcome home" />,
+        tab: <Ons.Tab label='Home' icon='md-home' />
+      },
+      {
+        content: <MyTab content="Change the settings" />,
+        tab: <Ons.Tab label='Settings' icon='md-settings' />
+      }
+    ];
   }
 
   render() {
-    if(!window){
-      return null;
-    }
     return (
-      <div>
-        <Page>
-          <Button onClick={this.handleClick}>Tap me!</Button>
-        </Page>
-      </div>
+      <Ons.Page renderToolbar={::this.renderToolbar}>
+        <Ons.Tabbar
+          swipeable={true}
+          position='auto'
+          index={this.state.index}
+          onPreChange={(event) => {
+            if (event.index != this.state.index) {
+              this.setState({ index: event.index });
+            }
+          }
+          }
+          renderTabs={::this.renderTabs}
+        />
+      </Ons.Page>
     );
   }
 }
