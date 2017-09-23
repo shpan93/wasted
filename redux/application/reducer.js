@@ -3,7 +3,7 @@ import * as constants from './constants';
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case constants.ACTION_TYPE: {
+    case constants.START_STREAM: {
       return state;
     }
     default:
