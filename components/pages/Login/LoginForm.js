@@ -1,8 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Input from '../../form/Input';
+import { login } from '../../../redux/user/actions';
 
 class LoginForm extends React.Component {
-  static propTypes = {};
+  static propTypes = {
+    login: React.PropTypes.func,
+  };
   state = {};
 
   handleChange(input, e) {
@@ -11,18 +15,26 @@ class LoginForm extends React.Component {
     });
   }
 
-  render() {
+  submit() {
+    this.props.login(this.state);
+  }
 
-    const { handleSubmit } = this.props;
+  render() {
     return (
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={::this.submit}>
           <Input value={this.state.name} placeholder="name" onChange={this.handleChange.bind(this, 'name')} />
-          <Input value={this.state.password} type="password" placeholder="name" onChange={this.handleChange.bind(this, 'password')} />
+          <Input value={this.state.password} type="password" placeholder="name"
+                 onChange={this.handleChange.bind(this, 'password')} />
+          <button type="submit">
+            Join
+          </button>
         </form>
       </div>
     )
   }
 }
 
-export default LoginForm;
+export default connect(null, {
+  login,
+})(LoginForm);
