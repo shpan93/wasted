@@ -6,7 +6,7 @@ const routes = {
     metadata: { component: Register, props: { key: 'register' } },
   },
   login: {
-    metadata: { component: Login, props: { key: 'register' } },
+    metadata: { component: Login, props: { key: 'login' } },
   },
 };
 
