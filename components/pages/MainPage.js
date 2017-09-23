@@ -66,7 +66,7 @@ class MainPage extends React.Component {
           onClose={::this.hide}
           onOpen={::this.show}
         >
-          <Ons.Page className="menu-page">
+          <Ons.Page className={`menu-page ${this.state.isOpen ? 'open' : 'closed'}`}>
             <img src="/assets/wasted_ico.png" alt="Logo" className="logo" />
             <Ons.List>
               <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>
