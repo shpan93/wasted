@@ -10,10 +10,29 @@ $blue-gray: #394d6a;
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  z-index: 1;
 
   >.logo{
     width: 50%;
     margin-top: 60px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-image: url("/assets/background-piu-piu.png");
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+
+  > *{
+    z-index: 3;
   }
 
   >.form-wrapper{
@@ -41,9 +60,9 @@ $blue-gray: #394d6a;
         color: #fff;
         font-size: 16px;
         font-weight: bolder;
-        padding: 10%;
+        padding: 10px 10vw;
         box-shadow: inset 0 0 0 200px #394d6a;
-        transition: box-shadow 0.5s ease-in-out 0s;
+        transition: box-shadow 0.5s ease-in-out;
 
 
         &:focus{
