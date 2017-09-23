@@ -1,20 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as Ons from 'react-onsenui';
 import Login from './Login/Login';
+import { setNavigator } from '../../redux/application/actions';
+import { saveUserId } from '../../redux/user/actions';
+import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
-
-const MyTab = React.createClass({
-  render() {
-    return (
-      <Ons.Page>
-          <Login/>
-          <p>
-            {this.props.content}.
-          </p>
-      </Ons.Page>
-    );
-  }
-});
 
 class MainPage extends React.Component {
   constructor() {
@@ -23,6 +14,15 @@ class MainPage extends React.Component {
       isOpen: false,
     };
     this.loadPage = this.loadPage.bind(this);
+  }
+
+  componentDidMount() {
+    const userId = localStorage.getItem('userId');
+    this.props.setNavigator(this.navigator);
+    if (userId) {
+      this.props.saveUserId(userId);
+      navigate(this.navigator, 'register', 'none');
+    }
   }
 
   hide() {
@@ -71,7 +71,8 @@ class MainPage extends React.Component {
             renderPage={this.renderPage.bind(this)}
             ref={(navigator) => {
               this.navigator = navigator;
-            }} />
+            }}
+          />
         </Ons.SplitterContent>
       </Ons.Splitter>
 
@@ -79,4 +80,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default connect(null, { setNavigator, saveUserId })(MainPage);
