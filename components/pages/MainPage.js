@@ -6,6 +6,7 @@ import { setNavigator } from '../../redux/application/actions';
 import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
+import FriendList from './FriendList';
 
 class MainPage extends React.Component {
   constructor() {
@@ -60,7 +61,7 @@ class MainPage extends React.Component {
             <Ons.List>
               <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
               <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
-              {/*<Ons.ListItem key='settings' onClick={this.loadPage.bind(this, Settings)} tappable>Settings</Ons.ListItem>*/}
+              <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>Friends</Ons.ListItem>
             </Ons.List>
           </Ons.Page>
         </Ons.SplitterSide>

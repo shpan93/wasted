@@ -72,7 +72,7 @@ class Stream extends React.PureComponent {
 
   render() {
     return (
-      <Ons.Page renderToolbar={::this.renderToolbar} key="register">
+      <Ons.Page renderToolbar={::this.renderToolbar} key="stream">
         <div className="stream-page" ref={(c) => { this.page = c; }}>
           {
             this.state.isShown &&
