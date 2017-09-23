@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Ons from 'react-onsenui';
-import Login from './Login/Login'
+import Login from './Login/Login';
+import Stream from './Stream';
 
 const MyTab = React.createClass({
   render() {
@@ -60,7 +61,7 @@ class MainPage extends React.Component {
           <Ons.Page>
             <Ons.List>
               <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
-              {/*<Ons.ListItem key='cards' onClick={this.loadPage.bind(this, Cards)} tappable>Cards</Ons.ListItem>*/}
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
               {/*<Ons.ListItem key='settings' onClick={this.loadPage.bind(this, Settings)} tappable>Settings</Ons.ListItem>*/}
             </Ons.List>
           </Ons.Page>
