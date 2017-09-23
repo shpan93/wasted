@@ -17,7 +17,8 @@ class LoginForm extends React.Component {
     });
   }
 
-  submit() {
+  submit(e) {
+    e.preventDefault();
     this.props.login(this.state);
   }
 
@@ -30,14 +31,16 @@ class LoginForm extends React.Component {
     return (
       <div className="form-wrapper">
         <form onSubmit={::this.submit}>
-          <Input value={this.state.email} placeholder="email" className="login-input" onChange={this.handleChange.bind(this, 'email')} />
+          <Input value={this.state.username} placeholder="username" className="login-input"
+                 onChange={this.handleChange.bind(this, 'username')} />
           <Input value={this.state.password} type="password" className="login-input" placeholder="name"
                  onChange={this.handleChange.bind(this, 'password')} />
-          <div onClick={::this.pushPage}>Go to reg</div>
           <button className="btn submit-button" type="submit">
             <span>Log in</span>
           </button>
         </form>
+
+        <div onClick={::this.pushPage}>Sign up</div>
       </div>
     )
   }
