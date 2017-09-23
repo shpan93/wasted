@@ -21,13 +21,13 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form-wrapper">
         <form onSubmit={::this.submit}>
-          <Input value={this.state.name} placeholder="name" onChange={this.handleChange.bind(this, 'name')} />
-          <Input value={this.state.password} type="password" placeholder="name"
+          <Input value={this.state.email} placeholder="email" className="login-input" onChange={this.handleChange.bind(this, 'email')} />
+          <Input value={this.state.password} type="password" className="login-input" placeholder="name"
                  onChange={this.handleChange.bind(this, 'password')} />
-          <button type="submit">
-            Join
+          <button className="btn submit-button" type="submit">
+            <span>Log in</span>
           </button>
         </form>
       </div>

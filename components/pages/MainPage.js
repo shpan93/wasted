@@ -6,12 +6,10 @@ const MyTab = React.createClass({
   render() {
     return (
       <Ons.Page>
-        <section style={{ margin: '16px' }}>
           <Login/>
           <p>
             {this.props.content}.
           </p>
-        </section>
       </Ons.Page>
     );
   }
