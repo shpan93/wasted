@@ -9,7 +9,10 @@ $blue-gray: #394d6a;
   flex-flow:column nowrap;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+
+  &.align-height {
+    height: 100%;
+  }
 
   >.logo{
     width: 50%;

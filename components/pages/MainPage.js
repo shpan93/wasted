@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as Ons from 'react-onsenui';
 import Login from './Login/Login';
+import Register from './Register/Register';
 import { setNavigator } from '../../redux/application/actions';
 import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
@@ -44,6 +45,7 @@ class MainPage extends React.Component {
     route.props.navigator = navigator;
     route.props.showMenu = this.show.bind(this);
 
+    console.log(route, route.component)
     return React.createElement(route.component, route.props);
   }
 
@@ -59,7 +61,8 @@ class MainPage extends React.Component {
         >
           <Ons.Page>
             <Ons.List>
-              <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
+              <Ons.ListItem key='login' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
+              <Ons.ListItem key='register' onClick={this.loadPage.bind(this, Register)} tappable>Home</Ons.ListItem>
               <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
               <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>Friends</Ons.ListItem>
             </Ons.List>
@@ -68,7 +71,7 @@ class MainPage extends React.Component {
         <Ons.SplitterContent>
           <Ons.Navigator
             animation="slide"
-            initialRoute={{ component: Login, props: { key: 'home' } }}
+            initialRoute={{ component: Register, props: { key: 'register' } }}
             renderPage={this.renderPage.bind(this)}
             ref={(navigator) => {
               this.navigator = navigator;
