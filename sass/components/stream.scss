@@ -1,7 +1,14 @@
 .stream-page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
   .stream-wrapper {
+    width: 100%;
+
     .own-video {
       width: 100%;
+      height: 250px;
     }
 
     .friends-video-container {
@@ -10,9 +17,30 @@
       justify-content: space-between;
       flex-wrap: wrap;
 
-      .friend-video {
-        flex: 1 1 32%;
+      .video-wrapper {
+        flex: 0 1 47%;
+        height: 100px;
+        padding: 4px;
+
+        .friend-video {
+          height: 100px;
+          width: 100%;
+        }
       }
+    }
+  }
+
+  .stream-activator {
+    border: 1px solid black;
+    transition: background-color 1s;
+    padding: 3px;
+
+    &.stop-stream {
+      background-color: rgba(255, 0, 0, 0.4);
+    }
+
+    &.start-stream {
+      background-color: rgba(0, 255, 0, 0.4);
     }
   }
 }

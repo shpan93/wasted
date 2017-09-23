@@ -1,19 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import * as Ons from 'react-onsenui';
-import Login from './Login/Login'
-
-const MyTab = React.createClass({
-  render() {
-    return (
-      <Ons.Page>
-          <Login/>
-          <p>
-            {this.props.content}.
-          </p>
-      </Ons.Page>
-    );
-  }
-});
+import Login from './Login/Login';
+import { setNavigator } from '../../redux/application/actions';
+import { saveUserId } from '../../redux/user/actions';
+import navigate from '../../routes/routeMapping';
+import Stream from './Stream';
+import FriendList from './FriendList';
 
 class MainPage extends React.Component {
   constructor() {
@@ -22,6 +15,15 @@ class MainPage extends React.Component {
       isOpen: false,
     };
     this.loadPage = this.loadPage.bind(this);
+  }
+
+  componentDidMount() {
+    const userId = localStorage.getItem('userId');
+    this.props.setNavigator(this.navigator);
+    if (userId) {
+      this.props.saveUserId(userId);
+      navigate(this.navigator, 'register', 'none');
+    }
   }
 
   hide() {
@@ -58,8 +60,8 @@ class MainPage extends React.Component {
           <Ons.Page>
             <Ons.List>
               <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
-              {/*<Ons.ListItem key='cards' onClick={this.loadPage.bind(this, Cards)} tappable>Cards</Ons.ListItem>*/}
-              {/*<Ons.ListItem key='settings' onClick={this.loadPage.bind(this, Settings)} tappable>Settings</Ons.ListItem>*/}
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
+              <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>Friends</Ons.ListItem>
             </Ons.List>
           </Ons.Page>
         </Ons.SplitterSide>
@@ -70,7 +72,8 @@ class MainPage extends React.Component {
             renderPage={this.renderPage.bind(this)}
             ref={(navigator) => {
               this.navigator = navigator;
-            }} />
+            }}
+          />
         </Ons.SplitterContent>
       </Ons.Splitter>
 
@@ -78,4 +81,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default MainPage;
+export default connect(null, { setNavigator, saveUserId })(MainPage);

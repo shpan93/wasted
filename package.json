@@ -44,6 +44,7 @@
     "express": "^4.15.2",
     "express-basic-auth": "^1.1.1",
     "global": "^4.3.2",
+    "md5": "^2.2.1",
     "npm-run-all": "^4.0.2",
     "onsenui": "^2.6.0",
     "prop-types": "^15.5.10",
