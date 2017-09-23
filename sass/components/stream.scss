@@ -1,0 +1,18 @@
+.stream-page {
+  .stream-wrapper {
+    .own-video {
+      width: 100%;
+    }
+
+    .friends-video-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .friend-video {
+        flex: 1 1 32%;
+      }
+    }
+  }
+}

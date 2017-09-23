@@ -1,5 +1,6 @@
 import React from 'react';
-import LoginForm from './LoginForm'
+import * as Ons from 'react-onsenui';
+import LoginForm from './LoginForm';
 
 class LoginPage extends React.PureComponent {
   static propTypes = {};
@@ -8,20 +9,34 @@ class LoginPage extends React.PureComponent {
     console.log(values);
   }
 
+  renderToolbar() {
+    return (
+      <Ons.Toolbar>
+        <div className='center'>Splitter+Navigator</div>
+        <div className='right'>
+          <Ons.ToolbarButton onClick={this.props.showMenu.bind(this)}>
+            <Ons.Icon icon='ion-navicon, material:md-menu' />
+          </Ons.ToolbarButton>
+        </div>
+      </Ons.Toolbar>
+    );
+  }
+
   render() {
     return (
-
-     <div className="page-wrapper">
-       <img src="../../../assets/wasted_ico.png" alt="Logo" className="logo"/>
-      <LoginForm onSubmit={::this.handleSubmit}/>
-      <div className="suggestion">
-        <p>
-          Don't have an account? <br/>
-          Please, <a className="link" href="#">Sign up</a>
-        </p>
-      </div>
-     </div>
-    )
+      <Ons.Page renderToolbar={::this.renderToolbar} key="login">
+        <div className="page-wrapper">
+          <img src="../../../assets/wasted_ico.png" alt="Logo" className="logo"/>
+          <LoginForm onSubmit={::this.handleSubmit} {...this.props}/>
+          <div className="suggestion">
+            <p>
+              Don't have an account? <br/>
+              Please, <a className="link" href="#">Sign up</a>
+            </p>
+          </div>
+        </div>
+      </Ons.Page>
+    );
   }
 }
 
