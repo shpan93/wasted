@@ -33,7 +33,6 @@ class LoginForm extends React.Component {
           <Input value={this.state.email} placeholder="email" className="login-input" onChange={this.handleChange.bind(this, 'email')} />
           <Input value={this.state.password} type="password" className="login-input" placeholder="name"
                  onChange={this.handleChange.bind(this, 'password')} />
-          <div onClick={::this.pushPage}>Go to reg</div>
           <button className="btn submit-button" type="submit">
             <span>Log in</span>
           </button>
