@@ -1,11 +1,13 @@
 import React from 'react';
 import * as Ons from 'react-onsenui';
+import Login from './Login/Login'
 
 const MyTab = React.createClass({
   render() {
     return (
       <Ons.Page>
         <section style={{ margin: '16px' }}>
+          <Login/>
           <p>
             {this.props.content}.
           </p>

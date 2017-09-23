@@ -8,7 +8,7 @@ import './sass/common.scss';
 import './node_modules/onsenui/css/onsenui.css';
 import './node_modules/onsenui/css/onsen-css-components.css';
 
-const { store, history } = configureStore(browserHistory, window.App);
+const { store, history } = configureStore(browserHistory);
 match({
   history,
   routes: getRoutes(store),
@@ -17,4 +17,3 @@ match({
     <Root store={store} renderProps={renderProps} />
     , document.getElementById('app'));
 });
-
