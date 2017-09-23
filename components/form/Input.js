@@ -1,26 +1,18 @@
 import React from 'react';
-import {Input as OnsInput} from 'react-onsenui';
 
 class Input extends React.PureComponent {
   static propTypes = {};
 
   render() {
-    const {
-      input,
-      label,
-      meta: { touched, error },
-      ...custom
-    } = this.props;
 
     return (
-      <OnsInput
-        modifier="underbar"
-        float
-        placeholder={label}
-        {...input}
-        {...custom}
-
-      />
+     <div className="form-group">
+       <input
+         placeholder={this.props.placeholder}
+         type={this.props.type}
+         onChange={this.props.onChange}
+       />
+     </div>
     );
   }
 }
