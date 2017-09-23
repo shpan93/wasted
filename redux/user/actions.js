@@ -20,7 +20,6 @@ export function login(body) {
       console.log(data);
       dispatch(saveUserId(data.id));
       localStorage.setItem('userId', data.id);
-      navigate(navigator, 'register');
     });
   };
 }

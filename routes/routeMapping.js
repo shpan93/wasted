@@ -27,4 +27,4 @@ export default function navigate(navigator, route, animation) {
   } else {
     console.error('No navigator or route');
   }
-};
+}
