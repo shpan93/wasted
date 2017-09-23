@@ -29,18 +29,4 @@
       }
     }
   }
-
-  .stream-activator {
-    border: 1px solid black;
-    transition: background-color 1s;
-    padding: 3px;
-
-    &.stop-stream {
-      background-color: rgba(255, 0, 0, 0.4);
-    }
-
-    &.start-stream {
-      background-color: rgba(0, 255, 0, 0.4);
-    }
-  }
 }
