@@ -3,14 +3,8 @@ import * as constants from './constants';
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case constants.START_STREAM: {
-      return state;
-    }
-    case constants.SET_NAVIGATOR: {
-      return {
-        ...state,
-        navigator: action.payload,
-      };
+    case constants.FETCH_FRIENDS: {
+      return Object.assign({}, { friends: action.payload });
     }
     default:
       return state;

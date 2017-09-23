@@ -12,6 +12,10 @@ $blue-gray: #394d6a;
   height: 100%;
   z-index: 1;
 
+  &.align-height {
+    height: 100%;
+  }
+
   >.logo{
     width: 50%;
     margin-top: 60px;
@@ -62,7 +66,7 @@ $blue-gray: #394d6a;
         font-weight: bolder;
         padding: 10px 10vw;
         box-shadow: inset 0 0 0 200px #394d6a;
-        transition: box-shadow 0.5s ease-in-out;
+        transition: box-shadow 0.5s ease-in-out 0s;
 
 
         &:focus{
