@@ -7,7 +7,10 @@ export default (state = initialState, action) => {
       return state;
     }
     case constants.SET_NAVIGATOR: {
-      return state;
+      return {
+        ...state,
+        navigator: action.payload,
+      };
     }
     default:
       return state;

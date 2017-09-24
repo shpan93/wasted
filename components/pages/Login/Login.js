@@ -2,7 +2,6 @@ import React from 'react';
 import * as Ons from 'react-onsenui';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
-import Register from '../Register/Register';
 import { navigate } from '../../../redux/application/actions';
 
 class LoginPage extends React.PureComponent {
@@ -10,9 +9,7 @@ class LoginPage extends React.PureComponent {
 
   navigateToRegister(e) {
     e.preventDefault();
-    this.props.navigator.resetPage({
-    component: Register, props: { key: 'register' }
-    });
+    this.props.navigate('register');
   }
 
   render() {
