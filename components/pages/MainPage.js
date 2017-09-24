@@ -76,7 +76,7 @@ class MainPage extends React.Component {
                   <Profile /> Home
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
+              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
                 <div className="menu-list-item">
                   <Start /> Start
                 </div>
