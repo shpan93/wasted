@@ -37,6 +37,7 @@ export default (req, res) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+          <link rel="stylesheet" type="text/css" href="/public/js/style.css">
           <script src="http://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.min.js"></script>
         </head>
         <body>
