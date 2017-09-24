@@ -24,9 +24,21 @@ export function login(body) {
   };
 }
 
+export function startActivity(activityId) {
+  return (dispatch, getState) => {
+    const userId = getState().user.userId || 1;
+    return getPostRequest('trackedActivity', {
+      activityId: parseInt(activityId, 10),
+      userId,
+      position: '',
+    }).then(({ data }) => {
+      console.log(data);
+    });
+  };
+}
+
 export function logout() {
   return (dispatch, getState) => {
-    const navigator = getState().application.navigator;
     return getGetRequest('users/logout').then(({ data }) => {
       console.log(data);
       localStorage.removeItem('userId');

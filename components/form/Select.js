@@ -9,7 +9,7 @@ class Input extends React.PureComponent {
     if (this.props.options) {
       return this.props.options.map((option) => {
         return (
-          <option value={option.value}>{option.label}</option>
+          <option value={option.id}>{option.name}</option>
         );
       });
     }
@@ -24,6 +24,7 @@ class Input extends React.PureComponent {
         <select
           onChange={this.props.onChange}
         >
+          <option disabled selected>{this.props.placeholder}</option>
           {this.renderOptions()}
         </select>
       </div>
