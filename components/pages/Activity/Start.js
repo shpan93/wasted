@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Ons from 'react-onsenui';
 import { connect } from 'react-redux';
-import LoginForm from './LoginForm';
+import ActivityStartForm from './ActivityStartForm';
 import { navigate } from '../../../redux/application/actions';
 
 class LoginPage extends React.PureComponent {
@@ -31,9 +31,6 @@ class LoginPage extends React.PureComponent {
         <div className="page-wrapper wrapper align-height">
           <h1>Start activity</h1>
           <ActivityStartForm {...this.props} />
-          <Button>
-            Start
-          </Button>
         </div>
       </Ons.Page>
     );

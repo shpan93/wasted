@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Select from '../../form/Select';
 import { login } from '../../../redux/user/actions';
-import { getCategoriesAndActivities } from '../../../redux/application/actions';
+import { getCategoriesAndActivities } from '../../../redux/data/actions';
 
-class LoginForm extends React.Component {
+class ActivityStartForm extends React.Component {
   static propTypes = {
     login: React.PropTypes.func,
     navigator: React.PropTypes.object,
@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
   };
 
   componentWillMount() {
-
+    this.props.getCategoriesAndActivities();
   }
 
   handleChange(input, e) {
@@ -39,15 +39,13 @@ class LoginForm extends React.Component {
           <Select
             value={this.state.category}
             placeholder="Category"
-            className="login-input"
             onChange={this.handleChange.bind(this, 'category')}
-            options={this.state.dataCategories}
+            options={this.props.data.categories}
           />
           <Select
             value={this.state.activity}
-            className="login-input"
             onChange={this.handleChange.bind(this, 'activity')}
-            options={this.state.dataActivities}
+            options={this.props.data.activities}
           />
           <button className="btn submit-button" type="submit">
             <span>Start</span>
@@ -58,6 +56,10 @@ class LoginForm extends React.Component {
   }
 }
 
-export default connect(null, {
-  login,
-})(LoginForm);
+export default connect(state => {
+  return {
+    data: state.data,
+  }
+}, {
+  getCategoriesAndActivities,
+})(ActivityStartForm);

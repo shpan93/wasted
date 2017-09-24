@@ -8,6 +8,7 @@ import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
 import FriendList from './FriendList';
+import ActivityStart from './Activity/Start';
 
 class MainPage extends React.Component {
   constructor() {
@@ -65,6 +66,7 @@ class MainPage extends React.Component {
               <Ons.ListItem key='register' onClick={this.loadPage.bind(this, Register)} tappable>Home</Ons.ListItem>
               <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
               <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>Friends</Ons.ListItem>
+              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>ActivityStart</Ons.ListItem>
             </Ons.List>
           </Ons.Page>
         </Ons.SplitterSide>

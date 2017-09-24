@@ -16,9 +16,3 @@ export function navigate(route, animation) {
     navigateUi(navigator, route, animation);
   };
 }
-
-export function getCategoriesAndActivities() {
-  return (dispatch, getState) => {
-    const getActivities = getGetRequest('')
-  };
-}
