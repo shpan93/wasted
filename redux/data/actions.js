@@ -1,5 +1,5 @@
 import * as constants from './constants';
-import { getGetRequest } from '../../utils/api';
+import { getGetRequest, getPostRequest } from '../../utils/api';
 
 export function saveActivities(payload) {
   return { type: constants.SAVE_ACTIVITIES , payload};
@@ -19,6 +19,15 @@ export function getCategoriesAndActivities() {
       dispatch(saveActivities(activities.data));
     }).catch(e => {
       console.error(e);
+    });
+  };
+}
+
+export function addActivity(payload) {
+  return (dispatch) => {
+    getPostRequest('activities', payload).then(() => {
+      dispatch({ type: constants.ADD_ACTIVITY });
+      dispatch(getCategoriesAndActivities());
     });
   };
 }
