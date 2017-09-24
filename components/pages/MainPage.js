@@ -8,6 +8,7 @@ import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
 import FriendList from './FriendList';
+import ActivityStart from './Activity/Start';
 import Achievements from '../../icons/achievements';
 import Activities from '../../icons/activities';
 import Exit from '../../icons/exit';
@@ -74,7 +75,7 @@ class MainPage extends React.Component {
                   <Profile /> Home
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
                 <div className="menu-list-item">
                   <Start /> Start
                 </div>

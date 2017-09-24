@@ -2,7 +2,7 @@ import axios from 'axios';
 import getEnvironment from './environment';
 
 const apiConfig = {
-  local: 'http://localhost:8000/',
+  local: 'https://wasted-backend.herokuapp.com/',
   production: 'https://wasted-backend.herokuapp.com/',
 };
 
