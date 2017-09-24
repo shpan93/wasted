@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../../form/Input';
-import Register from '../Register/Register';
+import Start from '../Activity/Start';
 import { login } from '../../../redux/user/actions';
 
 class LoginForm extends React.Component {
@@ -19,7 +19,11 @@ class LoginForm extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.login(this.state).then(() => {
+      this.props.navigator.resetPage({
+        component: Start, props: { key: 'ac-start' },
+      });
+    });
   }
 
 
@@ -37,7 +41,7 @@ class LoginForm extends React.Component {
             value={this.state.password}
             type="password"
             className="login-input"
-            placeholder="name"
+            placeholder="password"
             onChange={this.handleChange.bind(this, 'password')}
           />
           <button className="btn submit-button" type="submit">

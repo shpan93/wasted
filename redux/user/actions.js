@@ -7,15 +7,14 @@ import navigate from '../../routes/routeMapping';
 
 export function register(body) {
   return (dispatch) => {
-    return getPostRequest('users/register', body).then(() => {
-      dispatch();
+    return getPostRequest('users', body).then(() => {
+
     });
   };
 }
 
 export function login(body) {
   return (dispatch, getState) => {
-    const navigator = getState().application.navigator;
     return getPostRequest('users/login', body).then(({ data }) => {
       console.log(data);
       dispatch(saveUserId(data.id));
@@ -24,9 +23,21 @@ export function login(body) {
   };
 }
 
+export function startActivity(activityId) {
+  return (dispatch, getState) => {
+    const userId = getState().user.userId || 1;
+    return getPostRequest('trackedActivity', {
+      activityId: parseInt(activityId, 10),
+      userId,
+      position: '',
+    }).then(({ data }) => {
+      console.log(data);
+    });
+  };
+}
+
 export function logout() {
   return (dispatch, getState) => {
-    const navigator = getState().application.navigator;
     return getGetRequest('users/logout').then(({ data }) => {
       console.log(data);
       localStorage.removeItem('userId');
