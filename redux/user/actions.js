@@ -23,7 +23,7 @@ export function login(body) {
   };
 }
 
-export function startActivity(activityId) {
+export function startActivity(activityId, cb) {
   return (dispatch, getState) => {
     const userId = getState().user.userId || 1;
     return getPostRequest('trackedActivity', {
@@ -32,6 +32,7 @@ export function startActivity(activityId) {
       position: '',
     }).then(({ data }) => {
       console.log(data);
+      cb();
     });
   };
 }
