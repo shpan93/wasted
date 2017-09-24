@@ -15,6 +15,8 @@ import Friends from '../../icons/friends';
 import Profile from '../../icons/profile';
 import Score from '../../icons/score';
 import Start from '../../icons/start';
+import Congratulations1 from './Congratulations/Congratulations1';
+import Congratulations2 from './Congratulations/Congratulations2';
 
 class MainPage extends React.Component {
   constructor() {
@@ -82,6 +84,16 @@ class MainPage extends React.Component {
               <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>
                 <div className="menu-list-item">
                   <Friends /> Friends
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='congratulations1' onClick={this.loadPage.bind(this, Congratulations1)} tappable>
+                <div className="menu-list-item">
+                  <Friends /> Grats1
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='congratulations2' onClick={this.loadPage.bind(this, Congratulations2)} tappable>
+                <div className="menu-list-item">
+                  <Friends /> Grats2
                 </div>
               </Ons.ListItem>
               <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, FriendList)} tappable>

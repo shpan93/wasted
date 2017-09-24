@@ -2,6 +2,25 @@
   color: white;
   margin-top: 30px;
   margin-bottom: 30px;
+  z-index: 3;
+
+  &:after {
+    content: '';
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-image: url("/assets/background-piu-piu.png");
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+
+   *{
+    z-index: 3;
+  }
 
   .friends-list {
     max-width: 80%;

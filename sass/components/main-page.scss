@@ -12,6 +12,7 @@ $blue-gray: #394d6a;
   align-items: center;
   height: 100%;
   z-index: 1;
+  //padding: 40px 0;
 
   &.align-height {
     height: 100%;
@@ -20,11 +21,12 @@ $blue-gray: #394d6a;
   >.logo{
     width: 50%;
     margin-top: 60px;
+    margin-bottom: 20px;
   }
 
   &:after {
     content: '';
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     bottom:0;
@@ -41,7 +43,7 @@ $blue-gray: #394d6a;
   }
 
   >.form-wrapper{
-    height:100%;
+    //height:100%;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -55,9 +57,9 @@ $blue-gray: #394d6a;
 
       .form-group{
         width: 70%;
-        height: 47px;
+        height: 35px;
         text-align: center;
-        margin: 10px 0;
+        margin: 7px 0;
 
       > input{
         width: 100%;
