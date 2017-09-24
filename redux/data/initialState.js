@@ -4,4 +4,7 @@
 export default {
   categories: [],
   activities: [],
+  trackedActivites: [],
+  isFetching: false,
+  isFetchingCurrent: false,
 };

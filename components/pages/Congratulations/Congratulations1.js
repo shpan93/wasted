@@ -2,7 +2,6 @@ import React from 'react';
 import * as Ons from 'react-onsenui';
 import '../../../sass/components/congratulations.scss';
 
-
 class Congratulations1 extends React.PureComponent {
   static propTypes = {};
 

@@ -2,6 +2,16 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
+  flex-grow: 1;
+
+  .form-group {
+    color: white;
+    margin-bottom: 30px;
+    label {
+      padding-left: 10px;
+    }
+  }
 
   .stream-wrapper {
     width: 100%;

@@ -4,10 +4,11 @@ import * as Ons from 'react-onsenui';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import { setNavigator } from '../../redux/application/actions';
-import { saveUserId } from '../../redux/user/actions';
+import { saveUserId, logout } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
-import Stream from './Stream';
+import StartPage from './Activity/Start';
 import FriendList from './FriendList';
+import ActivitiesPage from './Activities';
 import Achievements from '../../icons/achievements';
 import Activities from '../../icons/activities';
 import Exit from '../../icons/exit';
@@ -15,8 +16,6 @@ import Friends from '../../icons/friends';
 import Profile from '../../icons/profile';
 import Score from '../../icons/score';
 import Start from '../../icons/start';
-import Congratulations1 from './Congratulations/Congratulations1';
-import Congratulations2 from './Congratulations/Congratulations2';
 
 class MainPage extends React.Component {
   constructor() {
@@ -46,7 +45,7 @@ class MainPage extends React.Component {
 
   loadPage(page) {
     this.hide();
-    this.navigator.resetPage({ component: page, props: { key: page } });
+    this.navigator.resetPage({ component: page, props: { key: Math.random() } });
   }
 
   renderPage(route, navigator) {
@@ -76,7 +75,7 @@ class MainPage extends React.Component {
                   <Profile /> Home
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, StartPage)} tappable>
                 <div className="menu-list-item">
                   <Start /> Start
                 </div>
@@ -86,17 +85,7 @@ class MainPage extends React.Component {
                   <Friends /> Friends
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='congratulations1' onClick={this.loadPage.bind(this, Congratulations1)} tappable>
-                <div className="menu-list-item">
-                  <Friends /> Grats1
-                </div>
-              </Ons.ListItem>
-              <Ons.ListItem key='congratulations2' onClick={this.loadPage.bind(this, Congratulations2)} tappable>
-                <div className="menu-list-item">
-                  <Friends /> Grats2
-                </div>
-              </Ons.ListItem>
-              <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, FriendList)} tappable>
+              <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, ActivitiesPage)} tappable>
                 <div className="menu-list-item">
                   <Activities /> Activities
                 </div>
@@ -106,14 +95,14 @@ class MainPage extends React.Component {
                   <Score /> Score
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='exit' onClick={this.loadPage.bind(this, FriendList)} tappable>
-                <div className="menu-list-item">
-                  <Exit /> Sign out
-                </div>
-              </Ons.ListItem>
               <Ons.ListItem key='achievements' onClick={this.loadPage.bind(this, FriendList)} tappable>
                 <div className="menu-list-item">
                   <Achievements /> Achievements
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='exit' onClick={::this.props.logout} tappable>
+                <div className="menu-list-item">
+                  <Exit /> Sign out
                 </div>
               </Ons.ListItem>
             </Ons.List>
@@ -122,7 +111,7 @@ class MainPage extends React.Component {
         <Ons.SplitterContent>
           <Ons.Navigator
             animation="slide"
-            initialRoute={{ component: Register, props: { key: 'register' } }}
+            initialRoute={{ component: Register, props: { key: Math.random() } }}
             renderPage={this.renderPage.bind(this)}
             ref={(navigator) => {
               this.navigator = navigator;
@@ -135,4 +124,4 @@ class MainPage extends React.Component {
   }
 }
 
-export default connect(null, { setNavigator, saveUserId })(MainPage);
+export default connect(null, { setNavigator, saveUserId, logout })(MainPage);
