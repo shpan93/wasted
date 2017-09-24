@@ -28,7 +28,7 @@ class LoginPage extends React.PureComponent {
   render() {
     return (
       <Ons.Page renderToolbar={::this.renderToolbar} key="login">
-        <div className="page-wrapper wrapper align-height">
+        <div className="activity-page page-wrapper wrapper align-height">
           <h1>Start activity</h1>
           <ActivityStartForm {...this.props} />
         </div>

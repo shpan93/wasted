@@ -1,0 +1,20 @@
+.activity-page {
+  background-image: url("/assets/images/guys-start.png");
+  background-size: 70% auto;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  &::before{
+    @include abs;
+
+    z-index: -1;
+    opacity: 0.9;
+    bottom: 45%;
+    content: '';
+    background-image: url("/assets/background-piu-piu.png");
+  }
+
+  &.page-wrapper > .form-wrapper {
+    display: block;
+  }
+}

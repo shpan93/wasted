@@ -46,7 +46,6 @@ class MainPage extends React.Component {
     route.props.navigator = navigator;
     route.props.showMenu = this.show.bind(this);
 
-    console.log(route, route.component)
     return React.createElement(route.component, route.props);
   }
 

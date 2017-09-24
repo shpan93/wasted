@@ -15,8 +15,8 @@ export function getCategoriesAndActivities() {
     const getCategories = getGetRequest('categories');
 
     Promise.all([getActivities, getCategories]).then(([activities, categories]) => {
-      dispatch(saveActivities(activities.data));
       dispatch(saveCategories(categories.data));
+      dispatch(saveActivities(activities.data));
     }).catch(e => {
       console.error(e);
     });
