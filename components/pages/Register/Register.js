@@ -7,19 +7,6 @@ import { navigate } from '../../../redux/application/actions';
 class Register extends React.PureComponent {
   static propTypes = {};
 
-  renderToolbar() {
-    return (
-      <Ons.Toolbar>
-        <div className='center'>Splitter+Navigator</div>
-        <div className='right'>
-          <Ons.ToolbarButton onClick={this.props.showMenu.bind(this)}>
-            <Ons.Icon icon='ion-navicon, material:md-menu' />
-          </Ons.ToolbarButton>
-        </div>
-      </Ons.Toolbar>
-    );
-  }
-
   navigateToLogin(e) {
     e.preventDefault();
     this.props.navigate('login');
@@ -27,7 +14,7 @@ class Register extends React.PureComponent {
 
   render() {
     return (
-      <Ons.Page renderToolbar={::this.renderToolbar} key="register" someProp="1">
+      <Ons.Page key="register" someProp="1">
         <div className="page-wrapper wrapper">
           <img src="/assets/wasted_ico.png" alt="Logo" className="logo" />
           <RegisterForm {...this.props} />

@@ -15,19 +15,6 @@ class Stream extends React.PureComponent {
     };
   }
 
-  renderToolbar() {
-    return (
-      <Ons.Toolbar>
-        <div className='center'>Splitter+Navigator</div>
-        <div className='right'>
-          <Ons.ToolbarButton onClick={this.props.showMenu.bind(this)}>
-            <Ons.Icon icon='ion-navicon, material:md-menu' />
-          </Ons.ToolbarButton>
-        </div>
-      </Ons.Toolbar>
-    );
-  }
-
   startSharing() {
     this.initializeSkylink();
     this.props.startStream();
@@ -72,12 +59,12 @@ class Stream extends React.PureComponent {
 
   render() {
     return (
-      <Ons.Page renderToolbar={::this.renderToolbar} key="stream">
+      <Ons.Page key="stream">
         <div className="stream-page" ref={(c) => { this.page = c; }}>
           {
             this.state.isShown &&
             <div className="stream-wrapper" id="stream-wrapper" >
-              <video id="myVideo" autoPlay className="own-video" />
+              <video id="myVideo" autoPlay muted={true} className="own-video" />
               <div className="friends-video-container" ref={(c) => { this.component = c; }} >
                 {this.state.videos.map((el, index) => {
                   return (
@@ -90,7 +77,7 @@ class Stream extends React.PureComponent {
             </div>
           }
           <button
-            className={this.state.isShown ? 'stream-activator stop-stream' : 'stream-activator start-stream'}
+            className={this.state.isShown ? 'btn btn-submit stream-activator stop-stream' : 'btn btn-submit stream-activator start-stream'}
             onClick={this.state.isShown ? ::this.stopSharing : ::this.startSharing}
           >
             {this.state.isShown ? 'Stop' : 'Start'}

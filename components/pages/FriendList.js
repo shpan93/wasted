@@ -29,19 +29,6 @@ class FriendList extends React.Component {
     this.setState({ friendName: e.target.value });
   }
 
-  renderToolbar() {
-    return (
-      <Ons.Toolbar>
-        <div className="center">Splitter+Navigator</div>
-        <div className="right">
-          <Ons.ToolbarButton onClick={::this.props.showMenu}>
-            <Ons.Icon icon="ion-navicon, material:md-menu" />
-          </Ons.ToolbarButton>
-        </div>
-      </Ons.Toolbar>
-    );
-  }
-
   componentWillMount() {
     this.props.fetchFriends();
   }
@@ -52,7 +39,7 @@ class FriendList extends React.Component {
 
   render() {
     return (
-      <Ons.Page renderToolbar={::this.renderToolbar} key="friendsList">
+      <Ons.Page key="friendsList">
         <div className="friends-page">
           {
             this.props.friends && (

@@ -8,6 +8,13 @@ import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
 import FriendList from './FriendList';
+import Achievements from '../../icons/achievements';
+import Activities from '../../icons/activities';
+import Exit from '../../icons/exit';
+import Friends from '../../icons/friends';
+import Profile from '../../icons/profile';
+import Score from '../../icons/score';
+import Start from '../../icons/start';
 import ActivityStart from './Activity/Start';
 
 class MainPage extends React.Component {
@@ -53,19 +60,56 @@ class MainPage extends React.Component {
     return (
       <Ons.Splitter>
         <Ons.SplitterSide
-          side='right'
+          side="left"
           collapse={true}
+          swipeable={true}
           isOpen={this.state.isOpen}
-          onClose={this.hide.bind(this)}
-          onOpen={this.show.bind(this)}
+          onClose={::this.hide}
+          onOpen={::this.show}
         >
-          <Ons.Page>
+          <Ons.Page className={`menu-page ${this.state.isOpen ? 'open' : 'closed'}`}>
+            <img src="/assets/wasted_ico.png" alt="Logo" className="logo" />
             <Ons.List>
-              <Ons.ListItem key='login' onClick={this.loadPage.bind(this, Login)} tappable>Home</Ons.ListItem>
-              <Ons.ListItem key='register' onClick={this.loadPage.bind(this, Register)} tappable>Home</Ons.ListItem>
-              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>Stream</Ons.ListItem>
-              <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>Friends</Ons.ListItem>
-              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>ActivityStart</Ons.ListItem>
+              <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>
+                <div className="menu-list-item">
+                  <Profile /> Home
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>
+                <div className="menu-list-item">
+                  <Start /> Start
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='friends' onClick={this.loadPage.bind(this, FriendList)} tappable>
+                <div className="menu-list-item">
+                  <Friends /> Friends
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, FriendList)} tappable>
+                <div className="menu-list-item">
+                  <Activities /> Activities
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='score' onClick={this.loadPage.bind(this, FriendList)} tappable>
+                <div className="menu-list-item">
+                  <Score /> Score
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='exit' onClick={this.loadPage.bind(this, FriendList)} tappable>
+                <div className="menu-list-item">
+                  <Exit /> Sign out
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='achievements' onClick={this.loadPage.bind(this, FriendList)} tappable>
+                <div className="menu-list-item">
+                  <Achievements /> Achievements
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
+                <div className="menu-list-item">
+                  <Achievements /> ActivityStart
+                </div>
+              </Ons.ListItem>
             </Ons.List>
           </Ons.Page>
         </Ons.SplitterSide>

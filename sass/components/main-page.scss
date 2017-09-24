@@ -1,14 +1,17 @@
 $blue-gray: #394d6a;
 
 
-.page__background{
-  background: linear-gradient(to bottom, #001b35 0%, #003763 100%)
+.page__background {
+  background: linear-gradient(to right bottom, #120837 0%, #21236b 100%)
 }
-.page-wrapper{
+
+.page-wrapper {
   display: flex;
   flex-flow:column nowrap;
   justify-content: space-around;
   align-items: center;
+  height: 100%;
+  z-index: 1;
 
   &.align-height {
     height: 100%;
@@ -17,6 +20,24 @@ $blue-gray: #394d6a;
   >.logo{
     width: 50%;
     margin-top: 60px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-image: url("/assets/background-piu-piu.png");
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+
+  > *{
+    z-index: 3;
   }
 
   >.form-wrapper{
@@ -44,7 +65,7 @@ $blue-gray: #394d6a;
         color: #fff;
         font-size: 16px;
         font-weight: bolder;
-        padding: 10%;
+        padding: 10px 10vw;
         box-shadow: inset 0 0 0 200px #394d6a;
         transition: box-shadow 0.5s ease-in-out 0s;
 
@@ -65,5 +86,52 @@ $blue-gray: #394d6a;
     text-align: center;
 
     }
+}
+.menu-page {
+  box-shadow: 12px 4px 32px 6px rgba(0, 0, 0, 0.47);
+  transition: box-shadow 300ms;
+
+  &.closed {
+    box-shadow: none;
   }
 
+  .page__content {
+    background: #303031!important;
+
+    .logo {
+      padding-left: 57px;
+      margin-top: 57px;
+      margin-bottom: 40px;
+      width: 50%;
+    }
+
+    ons-list-item {
+      color: white;
+      background: #303031!important;
+      padding-left: 57px;
+    }
+
+    .menu-list-item {
+      height: 30px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      svg {
+        height: 30px;
+        width: 30px;
+        color: white;
+        padding-right: 25px;
+      }
+    }
+  }
+}
+
+
+svg {
+  color: currentColor;
+
+  path, polygon, g {
+    fill: currentColor;
+  }
+}
