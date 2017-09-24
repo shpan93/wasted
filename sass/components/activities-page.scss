@@ -1,0 +1,117 @@
+.activities-page {
+  &:after {
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-image: url("/assets/background-piu-piu.png");
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  .headline {
+    color: white;
+    font-size: 28px;
+    margin-left: 35px;
+    margin-top: 60px;
+    margin-bottom: 45px;
+  }
+
+  .subheadline {
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+
+  .see-all {
+    color: #da6f5b;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .categories-wrapper {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    .category {
+      width: 80px;
+      flex: 0 0 26%;
+      height: 100px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      .category-image {
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        border-radius: 50%;
+      }
+
+      .category-name {
+        margin: 0 auto;
+        color: white;
+        font-size: 14px;
+      }
+    }
+
+    &:after {
+      flex: 1 0 26%;
+      content: '';
+    }
+  }
+
+  .activity-form {
+    margin-top: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .form-group {
+      width: 70%;
+      height: 47px;
+      text-align: center;
+      margin: 10px 0;
+
+      select {
+        option {
+          color: black;
+        }
+      }
+
+      > input {
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bolder;
+        padding: 10%;
+        box-shadow: inset 0 0 0 200px #394d6a;
+        transition: box-shadow 0.5s ease-in-out 0s;
+
+
+        &:focus{
+          box-shadow: inset 0 0 0 2px #394d6a;
+        }
+      }
+
+    }
+  }
+
+}

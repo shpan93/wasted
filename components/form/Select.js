@@ -7,9 +7,9 @@ class Input extends React.PureComponent {
 
   renderOptions() {
     if (this.props.options) {
-      return this.props.options.map((option) => {
+      return this.props.options.map((option, id) => {
         return (
-          <option value={option.id}>{option.name}</option>
+          <option value={option.id} key={id}>{option.name}</option>
         );
       });
     }
