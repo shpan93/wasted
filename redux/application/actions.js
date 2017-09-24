@@ -1,5 +1,6 @@
 import * as constants from './constants';
 import navigateUi from '../../routes/routeMapping';
+import { getPostRequest, getGetRequest } from '../../utils/api';
 
 export function startStream() {
   return { type: constants.START_STREAM };

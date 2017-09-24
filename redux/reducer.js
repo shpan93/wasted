@@ -4,6 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 import ApplicationReducer from './application/reducer';
 import user from './user/reducer';
 import friends from './friends/reducer';
+import data from './data/reducer';
 
 export default combineReducers({
   routing: routerReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   form: formReducer,
   user,
   friends,
+  data,
 });
