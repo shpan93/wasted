@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d public",
     "relay": "relay-compiler --src ./src --schema path/schema.graphql",
     "start": "NODE_ENV=production node server.js",
-    "heroku-postbuild": "webpack --config webpack-production.config.js --progress",
+    "heroku-postbuild": "webpack --config webpack.config.prod.js --progress",
     "stylelint": "stylelint \"sass/**/*.scss\" --syntax scss; exit 0"
   },
   "repository": {
