@@ -75,7 +75,7 @@ class MainPage extends React.Component {
                   <Profile /> Home
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>
+              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
                 <div className="menu-list-item">
                   <Start /> Start
                 </div>
@@ -103,11 +103,6 @@ class MainPage extends React.Component {
               <Ons.ListItem key='achievements' onClick={this.loadPage.bind(this, FriendList)} tappable>
                 <div className="menu-list-item">
                   <Achievements /> Achievements
-                </div>
-              </Ons.ListItem>
-              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
-                <div className="menu-list-item">
-                  <Achievements /> ActivityStart
                 </div>
               </Ons.ListItem>
             </Ons.List>
