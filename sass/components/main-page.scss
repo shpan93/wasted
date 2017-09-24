@@ -22,7 +22,7 @@ $blue-gray: #394d6a;
     margin-top: 60px;
   }
 
-  &:after {
+  &:before {
     content: '';
     position: absolute;
     top:0;
@@ -33,7 +33,7 @@ $blue-gray: #394d6a;
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;
-    z-index: 2;
+    z-index: -1;
   }
 
   > *{

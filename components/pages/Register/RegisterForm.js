@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../../form/Input';
-import { login } from '../../../redux/user/actions';
+import Login from '../Login/Login';
+import { register } from '../../../redux/user/actions';
 
 class RegisterForm extends React.Component {
   static propTypes = {
-    login: React.PropTypes.func,
+    register: React.PropTypes.func,
     navigator: React.PropTypes.object,
   };
   state = {};
@@ -18,7 +19,9 @@ class RegisterForm extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.register(this.state).then(() => {
+      this.props.navigateToLogin();
+    });
   }
 
 
@@ -54,7 +57,7 @@ class RegisterForm extends React.Component {
             value={this.state.password}
             type="password"
             className="login-input"
-            placeholder="name"
+            placeholder="password"
             onChange={this.handleChange.bind(this, 'password')}
           />
           <button className="btn submit-button" type="submit">
@@ -67,4 +70,4 @@ class RegisterForm extends React.Component {
 }
 
 
-export default connect(null, { login })(RegisterForm);
+export default connect(null, { register })(RegisterForm);

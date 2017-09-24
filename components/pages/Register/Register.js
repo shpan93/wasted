@@ -19,7 +19,7 @@ class Register extends React.PureComponent {
       <Ons.Page key="register" someProp="1">
         <div className="page-wrapper wrapper">
           <img src="/assets/wasted_ico.png" alt="Logo" className="logo" />
-          <RegisterForm {...this.props} />
+          <RegisterForm {...this.props} navigateToLogin={::this.navigateToLogin} />
           <div className="suggestion">
             <p>
               Already have an account? <br />

@@ -7,15 +7,14 @@ import navigate from '../../routes/routeMapping';
 
 export function register(body) {
   return (dispatch) => {
-    return getPostRequest('users/register', body).then(() => {
-      dispatch();
+    return getPostRequest('users', body).then(() => {
+
     });
   };
 }
 
 export function login(body) {
   return (dispatch, getState) => {
-    const navigator = getState().application.navigator;
     return getPostRequest('users/login', body).then(({ data }) => {
       console.log(data);
       dispatch(saveUserId(data.id));
