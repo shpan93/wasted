@@ -3,13 +3,11 @@ import { connect } from 'react-redux';
 import * as Ons from 'react-onsenui';
 import Login from './Login/Login';
 import Register from './Register/Register';
-import ActivitiesPage from './Activities';
 import { setNavigator } from '../../redux/application/actions';
 import { saveUserId } from '../../redux/user/actions';
 import navigate from '../../routes/routeMapping';
 import Stream from './Stream';
 import FriendList from './FriendList';
-import ActivityStart from './Activity/Start';
 import Achievements from '../../icons/achievements';
 import Activities from '../../icons/activities';
 import Exit from '../../icons/exit';
@@ -17,6 +15,8 @@ import Friends from '../../icons/friends';
 import Profile from '../../icons/profile';
 import Score from '../../icons/score';
 import Start from '../../icons/start';
+import Congratulations1 from './Congratulations/Congratulations1';
+import Congratulations2 from './Congratulations/Congratulations2';
 
 class MainPage extends React.Component {
   constructor() {
@@ -68,7 +68,7 @@ class MainPage extends React.Component {
           onClose={::this.hide}
           onOpen={::this.show}
         >
-          <Ons.Page className={`menu-page ${this.state.isOpen ? 'open' : 'closed'}`}>
+          <Ons.Page className="menu-page">
             <img src="/assets/wasted_ico.png" alt="Logo" className="logo" />
             <Ons.List>
               <Ons.ListItem key='home' onClick={this.loadPage.bind(this, Login)} tappable>
@@ -76,7 +76,7 @@ class MainPage extends React.Component {
                   <Profile /> Home
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='ActivityStart' onClick={this.loadPage.bind(this, ActivityStart)} tappable>
+              <Ons.ListItem key='stream' onClick={this.loadPage.bind(this, Stream)} tappable>
                 <div className="menu-list-item">
                   <Start /> Start
                 </div>
@@ -86,7 +86,17 @@ class MainPage extends React.Component {
                   <Friends /> Friends
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, ActivitiesPage)} tappable>
+              <Ons.ListItem key='congratulations1' onClick={this.loadPage.bind(this, Congratulations1)} tappable>
+                <div className="menu-list-item">
+                  <Friends /> Grats1
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='congratulations2' onClick={this.loadPage.bind(this, Congratulations2)} tappable>
+                <div className="menu-list-item">
+                  <Friends /> Grats2
+                </div>
+              </Ons.ListItem>
+              <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, FriendList)} tappable>
                 <div className="menu-list-item">
                   <Activities /> Activities
                 </div>

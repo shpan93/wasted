@@ -1,0 +1,55 @@
+.congratulations-wrapper{
+  background: linear-gradient(to right bottom, #ff6959 0%, #f7a854 100%);
+  text-align: center;
+  height:auto;
+  padding: 30px 0;
+
+  &.page-wrapper {
+    &:after{
+      background-size: auto 90%;
+    }
+  }
+
+
+
+  > .congratulations-title{
+    //text-align: center;
+
+    > h2{
+      color: #fff;
+      font-weight: bold;
+      font-size: 34px;
+    }
+    >p{
+      color: #fff;
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  >.trophy{
+    width: 75%;
+  }
+
+  .blue{
+    background: #003867;
+
+    &:hover{
+      background: darken(#003867, 5%);
+    }
+  }
+
+  h3{
+    color: #fff;
+    font-size: 24px !important;
+    font-weight: bold !important;
+  }
+
+  .actual-activity-img{
+    width: 50%;
+  }
+  .suggested-activity-img{
+    width: 50%;
+  }
+}
+

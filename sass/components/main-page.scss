@@ -2,7 +2,7 @@ $blue-gray: #394d6a;
 
 
 .page__background {
-  background: linear-gradient(to right bottom, #120837 0%, #21236b 100%)
+  background: linear-gradient(to bottom, #001b35 0%, #003763 100%)
 }
 
 .page-wrapper {
@@ -12,6 +12,7 @@ $blue-gray: #394d6a;
   align-items: center;
   height: 100%;
   z-index: 1;
+  //padding: 40px 0;
 
   &.align-height {
     height: 100%;
@@ -20,11 +21,12 @@ $blue-gray: #394d6a;
   >.logo{
     width: 50%;
     margin-top: 60px;
+    margin-bottom: 20px;
   }
 
-  &:before {
+  &:after {
     content: '';
-    position: absolute;
+    position: fixed;
     top:0;
     left:0;
     bottom:0;
@@ -33,7 +35,7 @@ $blue-gray: #394d6a;
     background-size: contain;
     background-position: bottom center;
     background-repeat: no-repeat;
-    z-index: -1;
+    z-index: 2;
   }
 
   > *{
@@ -41,7 +43,7 @@ $blue-gray: #394d6a;
   }
 
   >.form-wrapper{
-    height:100%;
+    //height:100%;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -55,9 +57,9 @@ $blue-gray: #394d6a;
 
       .form-group{
         width: 70%;
-        height: 47px;
+        height: 35px;
         text-align: center;
-        margin: 10px 0;
+        margin: 7px 0;
 
       > input{
         width: 100%;
@@ -89,11 +91,6 @@ $blue-gray: #394d6a;
 }
 .menu-page {
   box-shadow: 12px 4px 32px 6px rgba(0, 0, 0, 0.47);
-  transition: box-shadow 300ms;
-
-  &.closed {
-    box-shadow: none;
-  }
 
   .page__content {
     background: #303031!important;
