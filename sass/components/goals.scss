@@ -1,0 +1,36 @@
+.goals-wrapper{
+  .goals-title{
+    text-align: left;
+    width: 70%;
+    margin-top: 20px;
+
+    h2{
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  & .form-wrapper{
+    form{
+      .form-group{
+        input{
+          font-size: 12px !important;
+        }
+      }
+    }
+  }
+
+  .goals-guys{
+    margin-top: -65px;
+    padding: 0 10px;
+
+    .goal-guy-right{
+      width: 72%;
+    }
+    .goal-guy-left{
+      width: 27%;
+    }
+  }
+}
