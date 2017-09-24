@@ -4,9 +4,18 @@
   background-position: bottom center;
   background-repeat: no-repeat;
 
+  h1 {
+    color: white;
+  }
+
+  &.stream-active {
+    background-image: none;
+  }
+
   &::before{
     @include abs;
 
+    position: fixed;
     z-index: -1;
     opacity: 0.9;
     bottom: 45%;
@@ -14,7 +23,35 @@
     background-image: url("/assets/background-piu-piu.png");
   }
 
+  &::after {
+    position: fixed !important;
+  }
+
   &.page-wrapper > .form-wrapper {
     display: block;
+    height: auto;
+  }
+
+  .active-activity {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .activity-name {
+      flex-basis: 100%;
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .time-passed {
+      margin-top: 10px;
+      display: flex;
+      flex-basis: 100%;
+      justify-content: center;
+    }
   }
 }

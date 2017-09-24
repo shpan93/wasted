@@ -59,31 +59,33 @@ class Stream extends React.PureComponent {
 
   render() {
     return (
-      <Ons.Page key="stream">
-        <div className="stream-page" ref={(c) => { this.page = c; }}>
-          {
-            this.state.isShown &&
-            <div className="stream-wrapper" id="stream-wrapper" >
-              <video id="myVideo" autoPlay muted={true} className="own-video" />
-              <div className="friends-video-container" ref={(c) => { this.component = c; }} >
-                {this.state.videos.map((el, index) => {
-                  return (
-                    <div className="video-wrapper" key={index}>
-                      <video autoPlay={true} id={el} className="friend-video" />
-                    </div>
-                  );
-                })}
-              </div>
+      <div className="stream-page" ref={(c) => {
+        this.page = c;
+      }}>
+        {
+          this.state.isShown &&
+          <div className="stream-wrapper" id="stream-wrapper">
+            <video id="myVideo" autoPlay muted={true} className="own-video" />
+            <div className="friends-video-container" ref={(c) => {
+              this.component = c;
+            }}>
+              {this.state.videos.map((el, index) => {
+                return (
+                  <div className="video-wrapper" key={index}>
+                    <video autoPlay={true} id={el} className="friend-video" />
+                  </div>
+                );
+              })}
             </div>
-          }
-          <button
-            className={this.state.isShown ? 'btn btn-submit stream-activator stop-stream' : 'btn btn-submit stream-activator start-stream'}
-            onClick={this.state.isShown ? ::this.stopSharing : ::this.startSharing}
-          >
-            {this.state.isShown ? 'Stop' : 'Start'}
-          </button>
-        </div>
-      </Ons.Page>
+          </div>
+        }
+        <button
+          className={this.state.isShown ? 'btn btn-submit stream-activator stop-stream' : 'btn btn-submit stream-activator start-stream'}
+          onClick={this.state.isShown ? ::this.stopSharing : ::this.startSharing}
+        >
+          {this.state.isShown ? 'Stop' : 'Start'}
+        </button>
+      </div>
     );
   }
 }
