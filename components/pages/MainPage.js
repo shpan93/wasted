@@ -87,16 +87,6 @@ class MainPage extends React.Component {
                   <Friends /> Friends
                 </div>
               </Ons.ListItem>
-              <Ons.ListItem key='congratulations1' onClick={this.loadPage.bind(this, Congratulations1)} tappable>
-                <div className="menu-list-item">
-                  <Friends /> Grats1
-                </div>
-              </Ons.ListItem>
-              <Ons.ListItem key='congratulations2' onClick={this.loadPage.bind(this, Congratulations2)} tappable>
-                <div className="menu-list-item">
-                  <Friends /> Grats2
-                </div>
-              </Ons.ListItem>
               <Ons.ListItem key='activities' onClick={this.loadPage.bind(this, ActivitiesPage)} tappable>
                 <div className="menu-list-item">
                   <Activities /> Activities
